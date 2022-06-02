@@ -11,14 +11,17 @@ interface Props {
 }
 
 const Home: NextPage = ({ animes, isError }: any) => {
-
   return (
     <section>
       <header>
         <h2>Best Seller Products</h2>
         <h3>Anime you have to watch</h3>
       </header>
-      <ProductsList animes={animes} />
+      {isError ? (
+        <div>Sorry, but something went wrong. Please refresh the page.</div>
+      ) : (
+        <ProductsList animes={animes.animes} />
+      )}
     </section>
   );
 };
