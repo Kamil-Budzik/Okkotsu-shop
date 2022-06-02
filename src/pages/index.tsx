@@ -8,11 +8,15 @@ import ProductsList from 'containers/ProductsList';
 import Anime from 'interfaces/Anime';
 
 interface Props {
-  animes: Anime[];
+  animes: { animes: Anime[] };
   isError: boolean;
+  banner: { banners: { id: string; link: string; img: { url: string } }[] };
 }
 
-const Home: NextPage = ({ animes, isError }: any) => {
+const Home = ({ animes, isError, banner }: Props) => {
+  const bannerItem = banner.banners[0];
+  console.log(bannerItem);
+
   return (
     <section>
       <Box
@@ -38,7 +42,7 @@ const Home: NextPage = ({ animes, isError }: any) => {
 
 export const getServerSideProps = async () => {
   try {
-    const query = gql`
+    const animeQuery = gql`
       query MyQuery {
         animes {
           id
@@ -51,17 +55,31 @@ export const getServerSideProps = async () => {
         }
       }
     `;
+
+    const bannerQuery = gql`
+      query MyQuery {
+        banners {
+          id
+          link
+          img {
+            url
+          }
+        }
+      }
+    `;
+
     const client = new GraphQLClient(
       'https://api-eu-central-1.graphcms.com/v2/cl3vrwvusfviq01z1bph11p9v/master'
     );
-    const data = await client.request(query);
+    const animeData = await client.request(animeQuery);
+    const bannerData = await client.request(bannerQuery);
 
     return {
-      props: { animes: data, isError: false },
+      props: { animes: animeData, banner: bannerData, isError: false },
     };
   } catch {
     return {
-      props: { animes: [], isError: true },
+      props: { animes: [], banner: [], isError: true },
     };
   }
 };
