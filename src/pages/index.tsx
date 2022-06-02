@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
 import { gql, GraphQLClient } from 'graphql-request';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 import ProductsList from 'containers/ProductsList';
 
@@ -13,10 +15,18 @@ interface Props {
 const Home: NextPage = ({ animes, isError }: any) => {
   return (
     <section>
-      <header>
-        <h2>Best Seller Products</h2>
-        <h3>Anime you have to watch</h3>
-      </header>
+      <Box
+        component="header"
+        textAlign="center"
+        sx={{ textAlign: 'center', margin: '2em 0' }}
+      >
+        <Typography variant="h2" component="h2" fontWeight={700}>
+          Best Seller Products
+        </Typography>
+        <Typography variant="h4" component="h3" fontWeight={500}>
+          Anime you have to watch
+        </Typography>
+      </Box>
       {isError ? (
         <div>Sorry, but something went wrong. Please refresh the page.</div>
       ) : (
