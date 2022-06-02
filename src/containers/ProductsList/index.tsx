@@ -11,7 +11,6 @@ interface Props {
 }
 
 const ProductsList = ({ animes }: Props) => {
-  console.log(animes);
   return (
     <Container>
       <Grid container spacing={2}>
