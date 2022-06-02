@@ -1,7 +1,9 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ThemeProvider } from '@mui/material/styles';
 
 import 'styles/globals.css';
+import theme from 'styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
