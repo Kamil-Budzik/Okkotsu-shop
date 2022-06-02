@@ -1,11 +1,56 @@
 import type { NextPage } from 'next';
+import { gql, GraphQLClient } from 'graphql-request';
 
-const Home: NextPage = () => {
+import ProductsList from 'containers/ProductsList';
+
+import Anime from 'interfaces/Anime';
+
+interface Props {
+  animes: Anime[];
+  isError: boolean;
+}
+
+const Home: NextPage = ({ animes, isError }: any) => {
+
   return (
-    <div>
-      <h1>Hello, app!</h1>
-    </div>
+    <section>
+      <header>
+        <h2>Best Seller Products</h2>
+        <h3>Anime you have to watch</h3>
+      </header>
+      <ProductsList animes={animes} />
+    </section>
   );
+};
+
+export const getServerSideProps = async () => {
+  try {
+    const query = gql`
+      query MyQuery {
+        animes {
+          id
+          title
+          intro
+          slug
+          img {
+            url
+          }
+        }
+      }
+    `;
+    const client = new GraphQLClient(
+      'https://api-eu-central-1.graphcms.com/v2/cl3vrwvusfviq01z1bph11p9v/master'
+    );
+    const data = await client.request(query);
+
+    return {
+      props: { animes: data, isError: false },
+    };
+  } catch {
+    return {
+      props: { animes: [], isError: true },
+    };
+  }
 };
 
 export default Home;
