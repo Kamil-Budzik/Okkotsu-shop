@@ -4,39 +4,43 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import ProductsList from 'containers/ProductsList';
+import Banner from 'containers/Banner';
 
 import Anime from 'interfaces/Anime';
+import IBanner from 'interfaces/IBanner';
 
 interface Props {
   animes: { animes: Anime[] };
   isError: boolean;
-  banner: { banners: { id: string; link: string; img: { url: string } }[] };
+  banner: { banners: IBanner[] };
 }
 
 const Home = ({ animes, isError, banner }: Props) => {
   const bannerItem = banner.banners[0];
-  console.log(bannerItem);
 
   return (
-    <section>
-      <Box
-        component="header"
-        textAlign="center"
-        sx={{ textAlign: 'center', margin: '2em 0' }}
-      >
-        <Typography variant="h2" component="h2" fontWeight={700}>
-          Best Seller Products
-        </Typography>
-        <Typography variant="h4" component="h3" fontWeight={500}>
-          Anime you have to watch
-        </Typography>
-      </Box>
-      {isError ? (
-        <div>Sorry, but something went wrong. Please refresh the page.</div>
-      ) : (
-        <ProductsList animes={animes.animes} />
-      )}
-    </section>
+    <main style={{ marginTop: '3em' }}>
+      <Banner id={bannerItem.id} link={bannerItem.link} img={bannerItem.img} />
+      <section>
+        <Box
+          component="header"
+          textAlign="center"
+          sx={{ textAlign: 'center', margin: '2em 0' }}
+        >
+          <Typography variant="h2" component="h2" fontWeight={700}>
+            Best Seller Products
+          </Typography>
+          <Typography variant="h4" component="h3" fontWeight={500}>
+            Anime you have to watch
+          </Typography>
+        </Box>
+        {isError ? (
+          <div>Sorry, but something went wrong. Please refresh the page.</div>
+        ) : (
+          <ProductsList animes={animes.animes} />
+        )}
+      </section>
+    </main>
   );
 };
 
