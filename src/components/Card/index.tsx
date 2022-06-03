@@ -13,7 +13,7 @@ const CardComponent = ({ title, img, intro, slug }: Anime) => {
     <Card sx={{ maxWidth: 300, height: '100%' }}>
       <CardMedia component="img" height="160" image={img.url} alt={title} />
       <CardContent>
-        <Typography gutterBottom variant="h4" component="div" fontWeight={700}>
+        <Typography gutterBottom variant="h5" component="div" fontWeight={700}>
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">

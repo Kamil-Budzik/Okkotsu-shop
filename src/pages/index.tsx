@@ -27,10 +27,10 @@ const Home = ({ animes, isError, banner }: Props) => {
           textAlign="center"
           sx={{ textAlign: 'center', margin: '2em 0' }}
         >
-          <Typography variant="h2" component="h2" fontWeight={700}>
+          <Typography variant="h4" component="h2" fontWeight={700}>
             Best Seller Products
           </Typography>
-          <Typography variant="h4" component="h3" fontWeight={500}>
+          <Typography variant="h5" component="h3" fontWeight={500}>
             Anime you have to watch
           </Typography>
         </Box>
