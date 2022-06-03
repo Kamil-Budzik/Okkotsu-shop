@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import Anime from 'interfaces/Anime';
+import Link from 'next/link';
 
 const CardComponent = ({ title, img, intro, slug }: Anime) => {
   return (
@@ -21,8 +22,16 @@ const CardComponent = ({ title, img, intro, slug }: Anime) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="outlined">Add to basket</Button>
-        <Button variant="contained">Watch now</Button>
+        <Button variant="outlined" onClick={() => console.log('Add to basket')}>
+          Add to basket
+        </Button>
+        <Link href={`/anime/${slug}`}>
+          <a>
+            <Button variant="contained" sx={{ marginLeft: '.5em' }}>
+              Watch now
+            </Button>
+          </a>
+        </Link>
       </CardActions>
     </Card>
   );
