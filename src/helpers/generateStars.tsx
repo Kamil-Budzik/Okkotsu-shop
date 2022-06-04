@@ -5,14 +5,10 @@ const GenerateStars = (num: number) => {
   let stars = [];
 
   for (let i = 0; i < num; i++) {
-    stars.push(<StarIcon />);
+    stars.push(<StarIcon key={i} />);
   }
 
-  return (
-    <>
-      {stars}
-    </>
-  );
+  return <>{stars}</>;
 };
 
 export default GenerateStars;
