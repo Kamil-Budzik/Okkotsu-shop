@@ -6,6 +6,11 @@ interface Image {
 export default interface IExtendedAnime {
   id: string;
   title: string;
-  desc: string;
   images: Image[];
+  intro: string;
+  desc: {
+    html: string;
+  };
+  price: number;
+  stars: number;
 }
