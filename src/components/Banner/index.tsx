@@ -8,14 +8,13 @@ import IBanner from 'interfaces/IBanner';
 
 const Banner = ({ link, img }: IBanner) => {
   return (
-    <Container sx={{ position: 'relative', marginTop: '6em' }}>
+    <Container sx={{ position: 'relative', marginTop: '150px' }}>
       <Box
         component="img"
         src={img.url}
         sx={{
-          width: '100%',
-          height: 500,
-          objectFit: 'cover',
+          maxWidth: '100%',
+          objectFit: 'contain',
         }}
       />
       <Link href={`/anime/${link}`}>

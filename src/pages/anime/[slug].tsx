@@ -24,6 +24,7 @@ const AnimePage = ({ anime, isError }: Props) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: '150px',
       }}
     >
       <div>

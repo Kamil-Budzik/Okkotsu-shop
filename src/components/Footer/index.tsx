@@ -15,6 +15,7 @@ const Footer = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
+          flexWrap: 'wrap',
           justifyContent: 'space-between',
           color: 'white',
         }}
