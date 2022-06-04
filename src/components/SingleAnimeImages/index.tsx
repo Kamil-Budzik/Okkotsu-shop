@@ -29,6 +29,7 @@ const SingleAnimeImages = ({ images, title }: Props) => {
         sx={{
           display: 'flex',
           width: '100%',
+          flexWrap: 'wrap',
           justifyContent: 'space-evenly',
         }}
       >
