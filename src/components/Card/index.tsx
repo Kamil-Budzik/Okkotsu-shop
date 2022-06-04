@@ -28,7 +28,7 @@ const CardComponent = ({ title, img, intro, slug }: Anime) => {
         <Link href={`/anime/${slug}`}>
           <a>
             <Button variant="contained" sx={{ marginLeft: '.5em' }}>
-              Watch now
+              Read more
             </Button>
           </a>
         </Link>
