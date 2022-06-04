@@ -13,7 +13,6 @@ const Image = ({ url, click, index }: Props) => {
     <ListItem sx={{ width: 'auto' }}>
       <Box
         onClick={() => click(index)}
-        onMouseEnter={() => click(index)}
         component="img"
         src={url}
         alt="anime image"

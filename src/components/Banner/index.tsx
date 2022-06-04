@@ -8,7 +8,7 @@ import IBanner from 'interfaces/IBanner';
 
 const Banner = ({ link, img }: IBanner) => {
   return (
-    <Container sx={{ position: 'relative' }}>
+    <Container sx={{ position: 'relative', marginTop: '6em' }}>
       <Box
         component="img"
         src={img.url}

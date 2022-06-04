@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import SingleAnimeImages from 'components/SingleAnimeImages';
 import SingleAnimeCard from 'components/SingleAnimeCard';
 import SingleAnimeDesc from 'components/SingleAnimeDesc';
- 
+
 interface Props {
   isError: boolean;
   anime: IExtendedAnime;
