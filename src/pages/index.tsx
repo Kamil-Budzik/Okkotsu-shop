@@ -3,8 +3,8 @@ import { gql, GraphQLClient } from 'graphql-request';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-import ProductsList from 'containers/ProductsList';
-import Banner from 'containers/Banner';
+import ProductsList from 'components/ProductsList';
+import Banner from 'components/Banner';
 
 import Anime from 'interfaces/Anime';
 import IBanner from 'interfaces/IBanner';
